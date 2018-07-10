@@ -1,0 +1,67 @@
+<?php
+class Login {
+	public static function isLoggedIn() {
+
+	if (isset($_COOKIE['GPS'])) {
+		if (DB::query('SELECT user_id FROM gps_login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['GPS'])))){
+			$userid = DB::query('SELECT user_id FROM gps_login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['GPS'])))[0]["user_id"];
+
+			if (isset($_COOKIE['1_'])){
+			
+			return $userid;
+            }
+            else
+            {
+            	$cstrong = True;
+            	$token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
+            	DB::query('INSERT INTO gps_login_tokens VALUES (id, :token, :user_id)', array(':token'=>sha1($token), ':user_id'=>$userid));
+            	DB::query('DELETE FROM gps_login_tokens WHERE token=:token', array(':token'=>sha1($_COOKIE['GPS'])));
+            
+                setcookie("GPS", $token, time() + 60 * 60 * 24 * 7, '/', NULL, NULL, TRUE);
+       	        setcookie("1_", '1', time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE); 
+
+       	        return $userid;             
+            }
+		}
+
+	}
+	return false;
+}
+}
+
+class LoggedIn
+{
+    public static function isLoggedIN(){
+        $showTimeline = False;
+        if (Login::isLoggedIn()) {
+            $userid = Login::isLoggedIn();
+            $showTimeline = True;
+        }
+        else
+        {
+            header('location: index.php');
+
+        }
+    }
+}
+
+class WhoIsLoggedIn{
+    public static function whoislogged(){
+        $userid = Login::isLoggedIn();
+        $params = array(':user_id'=>$userid);
+        $user = DB::query('SELECT * FROM gps_users WHERE user_id=:user_id', $params);
+        foreach ($user as $loggedinuser) {
+            $user_id = $loggedinuser['user_id'];
+            $first_name  = $loggedinuser['first_name'];
+            $last_name = $loggedinuser['last_name']; 
+            $user_mail = $loggedinuser['user_mail'];
+            $date_registered = $loggedinuser['date_registered'];
+            $user_adress = $loggedinuser['user_adress'];
+            $user_last_login = $loggedinuser['user_last_login'];
+
+            $param = array($user_id, $first_name, $last_name, $user_mail, $date_registered, $user_adress, $user_last_login);
+        }
+        return $param;
+    }
+}
+?>
