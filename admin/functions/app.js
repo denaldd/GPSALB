@@ -1,4 +1,7 @@
-myApp.controller('online', function($scope, $http, $sce){
+'use strict';
+
+myApp.controller('online', function($scope, $http, $sce, $interval){
+this.loadNotifications = function (){
 $http({method: 'GET',url: 'functions/Online.php'})
 	.success(function (response) {
    		$scope.online = response;
@@ -10,13 +13,16 @@ $http({method: 'GET',url: 'functions/Online.php'})
 	}, function(response) {
    		console.log(response)
 	});
+};
+var theInterval = $interval(function(){
+  this.loadNotifications();
+}.bind(this), 10000);  
 });
 
 myApp.controller('numberofposts', function($scope, $http, $sce){
 $http({method: 'GET',url: 'functions/NumberOfPosts.php'})
 	.success(function (response) {
    		$scope.nums = response;
-   		//$scope.photo = $sce.trustAsHtml('Online <img src="img/online.png" style="width: 10px">');
 	}, function(response) {
    		console.log(response)
 	});
@@ -26,28 +32,21 @@ myApp.controller('date_registered', function($scope, $http, $sce){
 $http({method: 'GET',url: 'functions/RegisteredDate.php'})
 	.success(function (response) {
    		$scope.date_registered = response;
-   		//$scope.photo = $sce.trustAsHtml('Online <img src="img/online.png" style="width: 10px">');
 	}, function(response) {
    		console.log(response)
 	});
 });
 //test chart
-myApp.controller('MyController', function ($scope, $timeout) {
-    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-    $scope.series = ['Series A', 'Series B'];
-    $scope.data = [
-      [65, 59, 80, 81, 56, 55, 40],
-      [28, 48, 40, 19, 86, 27, 90]
-    ];
-    $scope.onClick = function (points, evt) {
-      console.log(points, evt);
-    };
+myApp.controller('MyController', function ($scope, $timeout, $http) {
+    $scope.labels = ["Janar", "Shkurt", "Mars", "Prill", "Maj", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nentor", "Dhjetor"];
+    
+    $http({method: 'GET',url: 'functions/shitjet_mujore.php'})
+      .success(function (response) {
+        $scope.val = response;
+        $scope.data = [
+          [$scope.val[0], $scope.val[1], $scope.val[2], $scope.val[3], $scope.val[4], $scope.val[5], $scope.val[6], $scope.val[7], $scope.val[8], $scope.val[9], $scope.val[10], $scope.val[0]]
+        ];
+      }, function(response) {
+    });
 
-    // Simulate async data update
-    $timeout(function () {
-      $scope.data = [
-        [28, 48, 40, 19, 86, 27, 90],
-        [65, 59, 80, 81, 56, 55, 40]
-      ];
-    }, 3000);
   });

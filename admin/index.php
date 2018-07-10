@@ -12,6 +12,9 @@ $user_mail = $params[3];
 $date_registered = $params[4];
 $user_adress = $params[5];
 $user_last_login = $params[6];
+   if (!$user_id) {
+      die('Module name is missing or incorrect. Please check the module name.');
+   }
 ?>
 
 <html lang = "en">
