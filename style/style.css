@@ -2,8 +2,8 @@ body , .md-flex-bg{
 	background: #f8f8f8 !important;
 }
 .site-sidenav{
-	background: #eeeeee;
-	color: black;
+	background: #001f58;
+	color: white;
 }
 .md-button.md-raised:not([disabled]) {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);

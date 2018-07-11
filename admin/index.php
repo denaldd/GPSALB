@@ -3,7 +3,6 @@ include '../DataBase/DB.php';
 include '../functions/Login.php';
 require_once ('functions/setOnline.php');
 LoggedIn::isLoggedIN();
-OnlineUsers::onUsers();
 $params = WhoIsLoggedIn::whoislogged();
 $user_id = $params[0];
 $firstname = $params[1];
