@@ -1,5 +1,4 @@
 'use strict';
-
 myApp.controller('online', function($scope, $http, $sce, $interval){
 this.loadNotifications = function (){
 $http({method: 'GET',url: 'functions/Online.php'})
@@ -14,9 +13,20 @@ $http({method: 'GET',url: 'functions/Online.php'})
    		console.log(response)
 	});
 };
+this.isOnline = function (){
+$http({method: 'POST',url: 'functions/setOnline.php'})
+  .success(function (response) {
+
+  }, function(response) {
+  });
+};
+
 var theInterval = $interval(function(){
   this.loadNotifications();
-}.bind(this), 10000);  
+}.bind(this), 10000);
+var theInterval1 = $interval(function(){
+  this.isOnline();
+}.bind(this), 30000);  
 });
 
 myApp.controller('numberofposts', function($scope, $http, $sce){

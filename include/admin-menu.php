@@ -52,13 +52,13 @@
    </md-sidenav>
    <md-content class='site-sidenav'>
       <md-button ng-click = "openLeftMenu()">
-         <md-icon md-svg-src="include/img/twotone-menu-24px.svg" aria-label=""></md-icon>
+         <md-icon md-svg-src="include/img/baseline-menu-24px.svg" aria-label=""></md-icon>
          Menu
       </md-button>
    </md-content>
    <md-content class='site-sidenav'>
       <md-button>
-         <md-icon md-svg-src="include/img/twotone-verified_user-24px.svg" aria-label=""></md-icon>
+         <md-icon md-svg-src="include/img/baseline-verified_user-24px.svg" aria-label=""></md-icon>
          <?php echo $firstname.' '.$lastname; ?>
       </md-button>
    </md-content>
