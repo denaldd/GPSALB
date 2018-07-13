@@ -82,11 +82,8 @@
                                     <div ng-message = "required">Kjo eshte fushe e detyruar.</div>
                                  </div>
                               </md-input-container>
-                              <md-input-container class = "md-block">
-                                 <label>Lat</label>
-                                 <input type="text" name = "lat" id="latitude" ng-model='form.lat'/>
-                              </md-input-container>
-                              <input type="text" name = "lng" id="longitude" ng-model = "form.lng">
+                              <input type="text" hidden name = "lat" id="latitude" ng-model='form.lat'/>
+                              <input type="text" hidden name = "lng" id="longitude" ng-model = "form.lng">
                               <md-button class = "md-raised md-primary" type='submit' ng-click="Submit">
                                  <md-icon md-svg-src="include/img/twotone-save-24px.svg" aria-label=""></md-icon>
                                  Save 
@@ -134,11 +131,8 @@
                                     <div ng-message = "required">Kjo eshte fushe e detyruar.</div>
                                  </div>
                               </md-input-container>
-                              <md-input-container class = "md-block">
-                                 <label>Lat</label>
-                                 <input type="text" name = "lat" id="latitude" ng-model='form.lat'/>
-                              </md-input-container>
-                              <input type="text" name = "lng" id="longitude" ng-model = "form.lng">
+                              <input type="text" hidden name = "lat" id="latitude" ng-model='form.lat'/>
+                              <input type="text" hidden name = "lng" id="longitude" ng-model = "form.lng">
                               <md-button class = "md-raised md-primary" type='submit' ng-click="Submit">
                                  <md-icon md-svg-src="include/img/twotone-save-24px.svg" aria-label=""></md-icon>
                                  Save 
@@ -194,11 +188,8 @@
                                     <div ng-message = "required">Kjo eshte fushe e detyruar.</div>
                                  </div>
                               </md-input-container>
-                              <md-input-container class = "md-block">
-                                 <label>Lat</label>
-                                 <input type="text" name = "lat" id="latitude" ng-model='form.lat'/>
-                              </md-input-container>
-                              <input type="text" name = "lng" id="longitude" ng-model = "form.lng">
+                              <input type="text" hidden name = "lat" id="latitude" ng-model='form.lat'/>
+                              <input type="text" hidden name = "lng" id="longitude" ng-model = "form.lng">
                               <md-button class = "md-raised md-primary" type='submit' ng-click="Submit">
                                  <md-icon md-svg-src="include/img/twotone-save-24px.svg" aria-label=""></md-icon>
                                  Save 

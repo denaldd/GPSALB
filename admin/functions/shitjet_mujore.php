@@ -4,7 +4,7 @@ include '../../functions/Login.php';
 LoggedIn::isLoggedIN();
 $params = WhoIsLoggedIn::whoislogged();
 $user_id = $params[0];
-
+$janar = ''; $shkurt= ''; $mars= ''; $prill= ''; $maj= ''; $qershor= ''; $korrik= ''; $gusht= ''; $shtator= ''; $tetor= ''; $nentor= ''; $dhjetore= '';
 $shitjet = DB::query('SELECT * FROM shitjet_mujore WHERE user_id=:user_id AND year=:year', array(':user_id'=>$user_id, ':year'=>date('Y')));
 foreach ($shitjet as $key) {
 	$janar = $key['janar'];
