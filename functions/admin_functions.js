@@ -141,6 +141,39 @@ function pune($scope, $http, FormService) {
     };
 };
 
+myApp.controller('car', car);
+function car($scope, $http, FormService) {
+    var formData = {
+        lat:FormService.getLat(),
+        lng: FormService.getLong()
+    }
+
+    $scope.form={
+    	lat:FormService.getLat(),
+        lng: FormService.getLong()
+    };
+
+    $scope.car_ = function() {
+    	$scope.form.lat = FormService.getLat();
+        $scope.form.lng = FormService.getLong();
+
+        $http({
+            url: "car.php",
+            data: $scope.form,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        }).success(function(data) {
+        	//window.location.href = $scope.form.titull;
+            alert('success');
+        }).error(function(err) {
+            "ERR",
+            console.log(err)
+        })
+    };
+};
+ 
 myApp.controller('shtepishitje', shtepishitje);
 function shtepishitje($scope, $http, FormService) {
     var formData = {
@@ -207,7 +240,7 @@ function elektronike($scope, $http, FormService) {
 };
 
 myApp.controller('ChangeController', ['$scope', function($scope) {
-    $scope.items = ['Shtepi me qera', 'Shtepi ne shitje', 'Elektronike', 'Restornate', 'Punesim', 'Makina'];
+    $scope.items = ['Punesim', 'Makina', 'Elektronike', 'Shtepi me qera', 'Shtepi ne shitje'];
     $scope.selection = $scope.items[0];
 }]);
 
