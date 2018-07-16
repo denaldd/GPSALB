@@ -282,7 +282,7 @@
                               <input type="text" hidden name = "lng" id="longitude" ng-model = "form.lng">
                               <md-button class = "md-raised md-primary" type='submit' ng-click="Submit">
                                  <md-icon md-svg-src="include/img/twotone-save-24px.svg" aria-label=""></md-icon>
-                                 Save 
+                                 Save  
                               </md-button>
                            </form>
                         </div>
