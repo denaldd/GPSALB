@@ -1,27 +1,27 @@
+var myApp = angular.module('admin', ['ngMaterial', 'ngRoute', 'ngCookies', 'ngAnimate', 'chart.js']);
 
-    var myApp = angular.module('admin', ['ngMaterial', 'ngRoute', 'ngCookies', 'ngAnimate', 'chart.js']);
+myApp.factory('FormService', function($http) {
 
-  myApp.factory('FormService', function($http) {
+    var latitude = '';
+    var longitude = '';
 
-        var latitude = '';
-        var longitude = '';
-
-        var FormService = {};
-        FormService.setConfigured = function(lat,long) {
-            latitude=lat;
-            longitude=long;
-        };
+    var FormService = {};
+    FormService.setConfigured = function(lat,long) {
+        latitude=lat;
+        longitude=long;
+    };
         
-        FormService.getLat= function() {
-            return latitude;
-        };
+    FormService.getLat= function() {
+        return latitude;
+    };
         
-        FormService.getLong= function() {
-            return longitude;
-        };
+    FormService.getLong= function() {
+        return longitude;
+    };
         
-        return FormService;
-    });
+    return FormService;
+});
+ 
 myApp.controller('sideNavController', sideNavController);
 
 function sideNavController($scope, $mdSidenav) {
@@ -107,6 +107,40 @@ function shtepi($scope, $http, FormService) {
         })
     };
 };
+
+myApp.controller('pune', pune);
+function pune($scope, $http, FormService) {
+    var formData = {
+        lat:FormService.getLat(),
+        lng: FormService.getLong()
+    }
+
+    $scope.form={
+    	lat:FormService.getLat(),
+        lng: FormService.getLong()
+    };
+
+    $scope.pune_ = function() {
+    	$scope.form.lat = FormService.getLat();
+        $scope.form.lng = FormService.getLong();
+
+        $http({
+            url: "add-work.php",
+            data: $scope.form,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        }).success(function(data) {
+        	//window.location.href = $scope.form.titull;
+            alert('success');
+        }).error(function(err) {
+            "ERR",
+            console.log(err)
+        })
+    };
+};
+
 myApp.controller('shtepishitje', shtepishitje);
 function shtepishitje($scope, $http, FormService) {
     var formData = {
@@ -154,7 +188,7 @@ function elektronike($scope, $http, FormService) {
     $scope.elektronike_ = function() {
     	$scope.form.lat = FormService.getLat();
         $scope.form.lng = FormService.getLong();
-        
+
         $http({
             url: "elektronike.php",
             data: $scope.form,
@@ -171,10 +205,12 @@ function elektronike($scope, $http, FormService) {
         })
     };
 };
+
 myApp.controller('ChangeController', ['$scope', function($scope) {
     $scope.items = ['Shtepi me qera', 'Shtepi ne shitje', 'Elektronike', 'Restornate', 'Punesim', 'Makina'];
     $scope.selection = $scope.items[0];
 }]);
+
 myApp.controller('Map', function($scope, FormService) {     
 $scope.initialize = function() {
     var map = new google.maps.Map(document.getElementById('map_div'), {
