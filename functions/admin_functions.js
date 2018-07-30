@@ -51,30 +51,6 @@ myApp.directive('ngFiles', ['$parse', function($parse) {
         link: fn_link
     }
 }])
-myApp.controller('myCntrl', function($scope, $http) {
-    //Get File
-    var formdata = new FormData();
-    $scope.getTheFiles = function($files) {
-        angular.forEach($files, function(value, key) {
-            formdata.append(key, value);
-        });
-    };
-    // NOW UPLOAD THE FILES.
-    $scope.uploadFiles = function() {
-        var request = {
-            method: 'POST',
-            url: 'uploadFile.php',
-            data: formdata,
-            headers: {
-                'Content-Type': undefined
-            }
-        };
-        $http(request).success(function(data) {
-            $scope.msg = data.message;
-            console.log(data);
-        });
-    }
-});
 myApp.controller('shtepi', shtepi);
 function shtepi($scope, $http, FormService) {
     var formData = {
@@ -99,8 +75,9 @@ function shtepi($scope, $http, FormService) {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
         }).success(function(data) {
-        	//window.location.href = $scope.form.titull;
-            alert('success');
+            //index.php?=title='+$scope.form.titull +'&lat='+ $scope.form.lat +'&lng='+ $scope.form.lng + '&description=' + $scope.form.pershkrim
+        	window.location.href = 'admin/photo/';
+            alert($scope.form.id);
         }).error(function(err) {
             "ERR",
             console.log(err)
@@ -132,7 +109,7 @@ function pune($scope, $http, FormService) {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
         }).success(function(data) {
-        	//window.location.href = $scope.form.titull;
+        	window.location.href = 'admin/photo/';
             alert('success');
         }).error(function(err) {
             "ERR",
@@ -165,7 +142,7 @@ function car($scope, $http, FormService) {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
         }).success(function(data) {
-        	//window.location.href = $scope.form.titull;
+        	window.location.href = 'admin/photo/';
             alert('success');
         }).error(function(err) {
             "ERR",
@@ -198,7 +175,7 @@ function shtepishitje($scope, $http, FormService) {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
         }).success(function(data) {
-            //window.location.href = $scope.form.titull;
+            window.location.href = 'admin/photo/';
             alert('success');
         }).error(function(err) {
             "ERR",
@@ -230,7 +207,7 @@ function elektronike($scope, $http, FormService) {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
         }).success(function(data) {
-            //window.location.href = $scope.form.titull;
+            window.location.href = 'admin/photo/';
             alert('success');
         }).error(function(err) {
             "ERR",
@@ -258,7 +235,6 @@ $scope.initialize = function() {
         map: map
     });
     google.maps.event.addListener(marker, "dragend", function (event) {
-    	console.log(this.position.lat());
         //document.getElementById('latitude').value = this.position.lat();
         //document.getElementById('longitude').value = this.position.lng();;
          FormService.setConfigured(this.position.lat(),this.position.lng());

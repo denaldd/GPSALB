@@ -1,42 +1,3 @@
-<?PHP
-//include 'DataBase/DB.php';
-//$postdata = file_get_contents("php://input");
-//$data     = json_decode($postdata, true);
-//if (isset($_FILES) && (count($_FILES)) > 0) {
-//    $cnt = count($_FILES);
-//    foreach ($_FILES as $key => $file) {
-//        $filename      = basename($_FILES[$key]['name']);
-        //echo '<pre>';print_r($filename);            
-//        $ext           = pathinfo($filename, PATHINFO_EXTENSION);
-//        $file1         = $_FILES[$key]['tmp_name'];
-//        $base_dir      = 'fileUpload/';
-//        $new_file_name = time() . '.' . $ext;
-//        $target        = $base_dir . $filename;
-//        $move          = move_uploaded_file($file1, $target);
-//    }
-//    if ($move) {
-/*        DB::query('INSERT INTO products VALUES(product_id, product_title, :product_description, product_email, product_telephone, product_price, product_user_ip, product_related_map, product_category, product_photo, product_date, product_code, product_view)', array(
-            ':product_description' => $data['userMail']
-        ));*/
-//        echo json_encode(array(
-//            'status' => $data['userMail'],
-//            'message' => $data['userFile']
-//        ));
-//    } else {
-//        echo json_encode(array(
-//            'status' => 'failure',
-//            'message' => 'Upload failed'
-//        ));
-//    }
-//    
-//} else {
-//    echo json_encode(array(
-//        'status' => 'failure',
-//       'message' => 'Select File'
-//    ));
-//}
-?>
-
 <?php 
 include 'DataBase/DB.php';
 include 'functions/Login.php';
@@ -74,7 +35,8 @@ $markers_params = array(
 	':lat' => $data['lat'],
 	':lng' => $data['lng'],
 	':type'=>'homegardenbusiness',
-	':url' => $product_related_map
+	':url' => $product_related_map, 
+	':user_id' => $user_id
 );
-DB::query('INSERT INTO markers VALUES (:id, :name, address, :lat, :lng, :type, :url)', $markers_params);
+DB::query('INSERT INTO markers VALUES (:id, :name, address, :lat, :lng, :type, :url, :user_id)', $markers_params);
 ?>
