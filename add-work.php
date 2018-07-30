@@ -35,8 +35,8 @@ $markers_params = array(
 	':lat' => $data['lat'],
 	':lng' => $data['lng'],
 	':type'=>'postoffice-us',
-	':url' => $product_related_map
+	':url' => $product_related_map,
+	':user_id' => $user_id
 );
-DB::query('INSERT INTO markers VALUES (:id, :name, address, :lat, :lng, :type, :url)', $markers_params);
-
+DB::query('INSERT INTO markers VALUES (:id, :name, address, :lat, :lng, :type, :url, :user_id)', $markers_params);
 ?>
