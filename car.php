@@ -1,5 +1,5 @@
 <?php 
-include 'DataBase/DB.php'; 
+include 'DataBase/DB.php';  
 include 'functions/Login.php';
 LoggedIn::isLoggedIN();
 $params = WhoIsLoggedIn::whoislogged();
