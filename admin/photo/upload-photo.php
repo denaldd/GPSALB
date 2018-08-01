@@ -14,3 +14,12 @@
       </md-content>
    </div>
 </div>
+<div layout="row" layout-xs="column" id="hiddens" ng-controller="getPhoto">
+   <div flex class="md-flex-bg">
+      <md-content layout-padding class='md-flex-bg'>
+         <div class="md-dialog-content">
+            <p ng-bind-html="photos"></p>
+         </div>
+      </md-content>
+   </div>
+</div>
