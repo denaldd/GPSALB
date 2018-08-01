@@ -39,7 +39,7 @@ $user_last_login = $params[6];
       <script src="../../functions/admin_functions.js"></script>
       <script src="../functions/app.js"></script>
       <link rel="stylesheet" type="text/css" href="../../style/style.css">   
-      <script src="functions/uploads.js"></script>  	  
+      <script src="functions/uploads.js"></script>  
    </head>
    
    <body ng-app = "admin"> 
