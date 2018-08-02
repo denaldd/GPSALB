@@ -34,7 +34,7 @@ $http({method: 'GET',url: 'functions/NumberOfPosts.php'})
 	.success(function (response) {
    		$scope.nums = response;
 	}, function(response) {
-   		console.log(response)
+   		//console.log(response)
 	});
 });
 
@@ -43,7 +43,7 @@ $http({method: 'GET',url: 'functions/RegisteredDate.php'})
 	.success(function (response) {
    		$scope.date_registered = response;
 	}, function(response) {
-   		console.log(response)
+   		//console.log(response)
 	});
 });
 //test chart
@@ -54,7 +54,7 @@ myApp.controller('MyController', function ($scope, $timeout, $http) {
       .success(function (response) {
         $scope.val = response;
         $scope.data = [
-          [$scope.val[0], $scope.val[1], $scope.val[2], $scope.val[3], $scope.val[4], $scope.val[5], $scope.val[6], $scope.val[7], $scope.val[8], $scope.val[9], $scope.val[10], $scope.val[0]]
+          [$scope.val[0], $scope.val[1], $scope.val[2], $scope.val[3], $scope.val[4], $scope.val[5], $scope.val[6], $scope.val[7], $scope.val[8], $scope.val[9], $scope.val[10], $scope.val[11]]
         ];
       }, function(response) {
     });
