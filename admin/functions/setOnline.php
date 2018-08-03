@@ -1,6 +1,7 @@
 <?php 
 include '../../DataBase/DB.php';
 include '../../functions/Login.php';
+
 LoggedIn::isLoggedIN();
 $params = WhoIsLoggedIn::whoislogged();
 $user_id = $params[0];

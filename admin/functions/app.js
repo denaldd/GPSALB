@@ -13,6 +13,15 @@ $http({method: 'GET',url: 'functions/Online.php'})
    		console.log(response)
 	});
 };
+
+
+this.setOnline = function() {
+  $http({method: 'POST', url: 'functions/setOnline.php'})
+  .success(function (response) {
+
+  });
+}
+
 this.isOnline = function (){
 $http({method: 'POST',url: 'functions/setOnline.php'})
   .success(function (response) {
@@ -21,7 +30,9 @@ $http({method: 'POST',url: 'functions/setOnline.php'})
   });
 };
 
+
 var theInterval = $interval(function(){
+  this.setOnline();
   this.loadNotifications();
 }.bind(this), 10000);
 var theInterval1 = $interval(function(){
