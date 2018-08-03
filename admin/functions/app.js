@@ -14,7 +14,16 @@ $http({method: 'GET',url: 'functions/Online.php'})
    		console.log(response)
 	});
 };
+
+this.setOnline = function() {
+  $http({method: 'POST', url: 'functions/setOnline.php'})
+  .success(function (response) {
+
+  });
+}
+
 var theInterval = $interval(function(){
+  this.setOnline();
   this.loadNotifications();
 }.bind(this), 10000);  
 });
