@@ -1,7 +1,7 @@
 <?php 
 include '../DataBase/DB.php';
 include '../functions/Login.php';
-require_once ('functions/setOnline.php');
+require_once ('../functions/setOnline.php');
 LoggedIn::isLoggedIN();
 $params = WhoIsLoggedIn::whoislogged();
 $user_id = $params[0];
@@ -33,17 +33,17 @@ $user_last_login = $params[6];
       <script src="https://cdnjs.cloudflare.com/ajax/libs/allmighty-autocomplete/1.0.140706/autocomplete.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
       <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
-      <script src="../libraries/angular-google-maps.js"></script>
+      <script src="../../libraries/angular-google-maps.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYPcm86TEikeMPMpg0IbpDespmVXxSYeI"></script>
       <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
-      <script src="../functions/admin_functions.js"></script>
-      <script src="functions/app.js"></script>
-      <link rel="stylesheet" type="text/css" href="../style/style.css">     	  
+      <script src="../../functions/admin_functions.js"></script>
+      <script src="../functions/app.js"></script>
+      <link rel="stylesheet" type="text/css" href="../../style/style.css">   
+      <script src="functions/uploads.js"></script>  
    </head>
    
    <body ng-app = "admin"> 
-      <?php include 'include/admin-menu.php'; ?>
-      <?php include 'card.php'; ?>
-      <?php include 'chart.php'; ?>
+      <?php include '../include/admin-menu.php'; ?>
+      <?php include 'upload-photo.php'; ?>
    </body>
 </html>

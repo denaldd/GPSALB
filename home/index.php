@@ -3,7 +3,6 @@ include '../DataBase/DB.php';
 include '../functions/Login.php';
 require_once ('functions/setOnline.php');
 LoggedIn::isLoggedIN();
-//OnlineUsers::onUsers();
 $params = WhoIsLoggedIn::whoislogged();
 $user_id = $params[0];
 $firstname = $params[1];
@@ -12,6 +11,9 @@ $user_mail = $params[3];
 $date_registered = $params[4];
 $user_adress = $params[5];
 $user_last_login = $params[6];
+   if (!$user_id) {
+      die('Module name is missing or incorrect. Please check the module name.');
+   }
 ?>
 
 <html lang = "en">
@@ -29,11 +31,12 @@ $user_last_login = $params[6];
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.3.12/modules/tooltip.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/allmighty-autocomplete/1.0.140706/autocomplete.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+      <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
       <script src="../libraries/angular-google-maps.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYPcm86TEikeMPMpg0IbpDespmVXxSYeI"></script>
       <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
       <script src="../functions/admin_functions.js"></script>
-      <script src="functions/app.js"></script>
       <link rel="stylesheet" type="text/css" href="../style/style.css">     	  
    </head>
    
