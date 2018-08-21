@@ -64,3 +64,6 @@ agm-map {
 	width: 300px;
 	height: 300px;
 }
+#map {
+  height: 90%;
+}

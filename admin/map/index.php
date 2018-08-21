@@ -1,6 +1,7 @@
 <?php 
-include 'DataBase/DB.php';
-include 'functions/Login.php';
+//include '../../DataBase/DB.php';
+//include '../../functions/Login.php';
+require_once ('../functions/setOnline.php');
 LoggedIn::isLoggedIN();
 $params = WhoIsLoggedIn::whoislogged();
 $user_id = $params[0];
@@ -10,6 +11,9 @@ $user_mail = $params[3];
 $date_registered = $params[4];
 $user_adress = $params[5];
 $user_last_login = $params[6];
+   if (!$user_id) {
+      die('Module name is missing or incorrect. Please check the module name.');
+   }
 ?>
 
 <html lang = "en">
@@ -32,12 +36,14 @@ $user_last_login = $params[6];
       <script src="libraries/angular-google-maps.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPjIlKe2G6EgQ9fLyNbTD18gy9nSzQeL0"></script>
       <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
-      <script src="functions/admin_functions.js"></script>
-      <link rel="stylesheet" type="text/css" href="style/style.css">     	  
+      <script src="../../functions/admin_functions.js"></script>
+      <script src="../functions/app.js"></script>
+      <script src="general.js"></script>
+      <link rel="stylesheet" type="text/css" href="../../style/style.css">     	  
    </head>
    
    <body ng-app = "admin"> 
-      <?php include 'include/admin-menu.php'; ?>
-      <?php include 'include/add-new-product.php'; ?>
+      <?php include '../include/admin-menu.php'; ?>
+      <?php include 'map.php'; ?>
    </body>
 </html>

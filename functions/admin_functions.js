@@ -243,3 +243,27 @@ $scope.initialize = function() {
 }    
 google.maps.event.addDomListener(window, 'load', $scope.initialize);   
 });
+
+
+myApp.controller('Map1', function($scope, FormService) {     
+$scope.initialize = function() {
+    var map = new google.maps.Map(document.getElementById('map_div1'), {
+        center: {lat: 41.2341696, lng:  20.3582332},
+        zoom: 8,
+        gestureHandling: 'greedy',
+        mapTypeId: 'roadmap'
+    });
+    var marker = new google.maps.Marker({
+        position: map.getCenter(),
+        draggable: true,
+        map: map
+    });
+    google.maps.event.addListener(marker, "dragend", function (event) {
+        //document.getElementById('latitude').value = this.position.lat();
+        //document.getElementById('longitude').value = this.position.lng();;
+         FormService.setConfigured(this.position.lat(),this.position.lng());
+
+    });
+}    
+google.maps.event.addDomListener(window, 'load', $scope.initialize);   
+});
