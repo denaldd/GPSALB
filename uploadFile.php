@@ -34,7 +34,7 @@ $markers_params = array(
 	':name' => $data['titull'],
 	':lat' => $data['lat'],
 	':lng' => $data['lng'],
-	':type'=>'homegardenbusiness',
+	':type'=>'salon',
 	':url' => $product_related_map, 
 	':user_id' => $user_id
 );
