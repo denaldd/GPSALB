@@ -33,7 +33,7 @@ $markers_params = array(
 	':name' => $data['titull'],
 	':lat' => $data['lat'],
 	':lng' => $data['lng'],
-	':type'=>'sportvenue',
+	':type'=>'bus',
 	':url' => $product_related_map,
 	':user_id' => $user_id
 );

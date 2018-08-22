@@ -43,7 +43,7 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo 'lat="' . $row['lat'] . '" ';
   echo 'lng="' . $row['lng'] . '" ';
   echo 'type="' . $row['type'] . '" ';
-  echo 'url="detail.php?id=' . $row['url'] . '" ';
+  echo 'url="post/?id='.$row['url'].'"';
   echo '/>';
   $ind = $ind + 1;
 }

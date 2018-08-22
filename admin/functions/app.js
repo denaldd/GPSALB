@@ -70,4 +70,9 @@ myApp.controller('MyController', function ($scope, $timeout, $http) {
       }, function(response) {
     });
 
-  });
+	});
+	
+	//post
+myApp.controller('viewpost',function($scope, $http, $sce) {
+
+});
