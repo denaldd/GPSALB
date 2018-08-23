@@ -1,4 +1,4 @@
 <div id="map"></div>
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPjIlKe2G6EgQ9fLyNbTD18gy9nSzQeL0&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuzKII55iOku0Vx1GYcDnDDDVO6X-wlKk&callback=initMap">
 </script>
