@@ -30,7 +30,7 @@ $user_last_login = $params[6];
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
       <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
       <script src="libraries/angular-google-maps.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPjIlKe2G6EgQ9fLyNbTD18gy9nSzQeL0"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuzKII55iOku0Vx1GYcDnDDDVO6X-wlKk"></script>
       <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
       <script src="functions/admin_functions.js"></script>
       <link rel="stylesheet" type="text/css" href="style/style.css">     	  
